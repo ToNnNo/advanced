@@ -1,0 +1,26 @@
+[block:title]
+    Hashage / Cryptage
+[endblock]
+
+[block:body]
+
+<p>MD5 = <?php echo $md5; ?></p>
+<p>sha1 = <?php echo $sha1; ?></p>
+<p>sha256 = <?php echo $sha256; ?></p>
+<p>hash bcrypt = <?php echo $hash; ?></p>
+
+<?php if(null != $message): ?>
+    <p><?php echo $message ?></p>
+<?php endif; ?>
+
+<form method="post">
+    <p>
+        <label>Password: </label>
+        <input type="text" name="chaine" value="" />
+    </p>
+    <p>
+        <input type="submit" name="valider" value="Valider" />
+    </p>
+</form>
+
+[endblock]

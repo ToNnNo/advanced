@@ -1,0 +1,36 @@
+[block:title]
+    Accueil
+[endblock]
+
+[block:body]
+    <p>Bienvenue sur notre exemple MVC php
+        de la formation php avancé</p>
+
+    <p> 1 - Faille XSS (Cross Site Scripting)</p>
+
+    <p>
+        Variable protégé: <?php echo $message; ?>
+    </p>
+
+    <p>
+        Variable non protégé: <?php echo html_entity_decode($message); ?>
+    </p>
+
+    <p>Pour se protéger, on utilise la fonction php htmlentities()</p>
+
+    <p> 2 - Injection SQL</p>
+
+    <?php
+        // $_POST['login'] = 'admin';
+        $_POST['login'] = "' or 1 = 1 --'";
+    ?>
+
+    <p><?php echo "SELECT * FROM user WHERE login = '".$_POST['login']."' AND password = '...'"; ?></p>
+
+    <p>
+        Pour se protéger, une fonction d'échappement de caractère $pdo->quote()
+        ou alors utiliser les requêtes préparées $pdo->prepare()
+    </p>
+
+    <p> 3 - XSRF / CSRF -> (Cross Site Request Forgery)</p>
+[endblock]
