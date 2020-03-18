@@ -1,0 +1,24 @@
+[block:title]
+    Hashage / Cryptage
+[endblock]
+
+[block:body]
+
+<p> Message crypté = <?php echo $encrypted; ?> </p>
+
+<?php if( null != $decrypted ): ?>
+    <p> Message décrypté = <?php echo $decrypted; ?> </p>
+<?php endif; ?>
+
+<h3>Décrypter le message</h3>
+<form method="post">
+    <p>
+        <label>Pass Phrase: </label>
+        <input type="text" name="passphrase" value="" />
+    </p>
+    <p>
+        <input type="submit" name="decrypt" value="Décrypter" />
+    </p>
+</form>
+
+[endblock]

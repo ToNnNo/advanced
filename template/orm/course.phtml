@@ -1,0 +1,45 @@
+[block:title]
+    ORM : Doctrine
+[endblock]
+
+[block:body]
+
+<h2>ORM: Object Relation Mapping</h2>
+
+<p><s>POJO =/= JavaBeans(serialize)</s></p>
+<h3>POPO: Plain Old Php Object =/= </h3>
+<ul>
+    <li>Classe Php</li>
+    <li>Attributs privés</li>
+    <li>Eventuellement un constructeur</li>
+    <li>[Mutateurs]/Accesseurs pour chaque attributs</li>
+</ul>
+
+<p>Dans le terminal:</p>
+<p>Unix/MACOS -> vendor/bin/doctrine</p>
+<p>Windows -> call vendor/bin/doctrine.bat</p>
+
+<div style="text-decoration: line-through">
+    <p>vendor/bin/doctrine orm:generate:entities src/</p>
+    <p>vendor/bin/doctrine o:g:e src/</p>
+
+    <p>Création des accesseurs</p>
+</div>
+
+<p>vendor/bin/doctrine orm:schema-tool:create</p>
+<p>vendor/bin/doctrine o:s:c --dump-sql</p>
+<p>vendor/bin/doctrine o:s:c</p>
+
+<p>Créer la table dans la Base de donnée</p>
+
+<p> Entity ==> bdd (insert/update/delete): EntityManager</p>
+
+<p> Entity <== bdd (select): Repository</p>
+<ul>
+    <li>findAll() -> Lire +ieurs lignes d'une table</li>
+    <li>find($id) -> Lire 1 ligne d'une table</li>
+    <li>findBy(array) -> Lire +ieurs lignes selon un critère</li>
+    <li>findOneBy(array) -> Lire 1 ligne selon un critère</li>
+    <li>findOneBy(['name' => "value"])</li>
+</ul>
+[endblock]

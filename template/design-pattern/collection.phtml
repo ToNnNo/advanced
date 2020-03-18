@@ -1,0 +1,20 @@
+[block:title]
+    Design Pattern: Iterator
+[endblock]
+
+[block:body]
+
+<p>
+    <a href="<?php echo $this->generateUrl('design_pattern_index'); ?>">Retour</a>
+</p>
+
+<p>Hello <?php echo $collection->get(0); ?></p>
+
+<p>Il y a <?php echo $collection->count(); ?> présent(s)</p>
+<ol>
+    <?php foreach($collection as $key => $value): ?>
+    <li><?php echo "(".$key.") Hello ".$value; ?></li>
+    <?php endforeach; ?>
+</ol>
+
+[endblock]

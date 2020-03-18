@@ -1,20 +1,24 @@
 {
-    "name": "dawan/phpavance",
-    "description": "Exemple de projet en formation",
-    "license": "MIT",
-    "authors": [
-        {
-            "name": "Stéphane Menut",
-            "email": "smenut@dawan.fr"
-        }
-    ],
-    "autoload": {
-      "psr-4": {
-        "App\\": "src/"
-      }
-    },
-    "require": {
-      "php": "^7.1",
-        "doctrine/collections": "^1.6"
+  "name": "dawan/phpavance",
+  "description": "Exemple de projet en formation",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Stéphane Menut",
+      "email": "smenut@dawan.fr"
     }
+  ],
+  "autoload": {
+    "psr-4": {
+      "App\\": "src/"
+    }
+  },
+  "require": {
+    "php": "^7.1",
+    "ext-openssl": "*",
+    "ext-http": "*",
+    "doctrine/collections": "^1.6",
+    "doctrine/orm": "^2.7",
+    "symfony/http-foundation": "^5.0"
+  }
 }

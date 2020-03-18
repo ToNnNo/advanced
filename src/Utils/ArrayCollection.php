@@ -65,12 +65,10 @@ class ArrayCollection implements \Iterator, \Countable
      */
     public function valid()
     {
-        if(isset($this->data[$this->index])) {
-            return true;
-        }
-
-        if(isset($this->data[$this->index+1])) {
-            $this->next();
+        if ($this->index <= array_key_last($this->data)) {
+            while ($this->index != array_key_last($this->data) && !isset($this->data[$this->index])) {
+                $this->next();
+            }
             return true;
         }
 

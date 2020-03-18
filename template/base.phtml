@@ -6,10 +6,45 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title><?php echo $blocktitle ?? 'Welcome'; ?> :: Formation php avancé</title>
+    <style>
+        .navigation {
+            display: flex;
+            margin: 20px 0;
+            padding: 0;
+        }
+
+        .navigation li {
+            list-style-type: none;
+            margin: 0 10px;
+        }
+
+        .navigation li a {
+            color: darkorange;
+            text-decoration: none;
+        }
+
+        .navigation li a:hover {
+            text-decoration: underline;
+        }
+
+    </style>
 </head>
 <body>
     <h1><?php echo $blocktitle ?? 'Default title'; ?></h1>
     <hr />
+
+    <nav>
+        <ul class="navigation">
+            <li><a href="<?php echo $this->generateUrl('home_index'); ?>">Accueil</a></li>
+            <li><a href="<?php echo $this->generateUrl('design_pattern_index'); ?>">Design Pattern</a></li>
+            <li><a href="<?php echo $this->generateUrl('crypto_index'); ?>">Hashage</a></li>
+            <li><a href="<?php echo $this->generateUrl('crypto_generate'); ?>">Generate Key</a></li>
+            <li><a href="<?php echo $this->generateUrl('openssl_crypt'); ?>">OpenSSL - Crypt</a></li>
+            <li><a href="<?php echo $this->generateUrl('openssl_decrypt'); ?>">OpenSSL - Decrypt</a></li>
+            <li><a href="<?php echo $this->generateUrl('orm_course'); ?>">ORM: cours</a></li>
+            <li><a href="<?php echo $this->generateUrl('orm_index'); ?>">Liste des produits</a></li>
+        </ul>
+    </nav>
 
     <?php echo $blockbody; ?>
 </body>

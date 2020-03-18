@@ -1,0 +1,41 @@
+[block:title]
+    <?php echo $action; ?> un produit
+[endblock]
+
+[block:body]
+
+<?php  if( count($errors) > 0 ): ?>
+    <ul>
+    <?php foreach ($errors as $error): ?>
+        <li><?php echo $error; ?></li>
+    <?php endforeach; ?>
+    </ul>
+<?php endif; ?>
+
+<p>
+    <a href="<?php echo $this->generateUrl('orm_index'); ?>">Retour</a>
+</p>
+<?php /** @var \App\Model\Product $product */ ?>
+<form method="post">
+    <p>
+        <label>Name</label><br />
+        <input type="text" name="name" value="<?php echo $product->getName() ?? null; ?>" />
+    </p>
+    <p>
+        <label>Price</label><br />
+        <input type="number" name="price" value="<?php echo $product->getPrice() ?? null; ?>" />
+    </p>
+    <p>
+        <label>Description</label><br />
+        <textarea name="description"><?php echo $product->getDescription() ?? null; ?></textarea>
+    </p>
+    <p>
+        <label>Date</label><br />
+        <input type="date" name="date" value="<?php echo ($product->getDate() != null) ? $product->getDate()->format('Y-m-d') : null; ?>" />
+    </p>
+    <p>
+        <input type="submit" name="envoyer" value="<?php echo $action; ?>" />
+    </p>
+</form>
+
+[endblock]

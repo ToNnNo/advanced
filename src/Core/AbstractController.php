@@ -3,20 +3,40 @@
 
 namespace App\Core;
 
+use Symfony\Component\HttpFoundation\ParameterBag;
+use Symfony\Component\HttpFoundation\RedirectResponse;
+use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpFoundation\Request;
 
 abstract class AbstractController
 {
-    private function getRoutes()
-    {
-        return require __DIR__ . "/../../routes.php";
-    }
+    /** @var ParameterBag $container */
+    protected $container;
+
+    protected $doctrine;
 
     /**
-     * @throws \Exception
+     * @param mixed $container
      */
+    public function setContainer($container)
+    {
+        $this->container = $container;
+    }
+
+    public function getDoctrine()
+    {
+        if( null == $this->doctrine){
+            $this->doctrine = new Doctrine();
+        }
+
+        return $this->doctrine;
+    }
+
     protected function generateUrl($routeName, array $params = [])
     {
-        $routes = $this->getRoutes();
+        $routes = $this->container->get('routes');
+        /** @var Request $request */
+        $request = $this->container->get('requestStack')->getCurrentRequest();
 
         $key = array_search($routeName, array_column($routes, 'name'));
 
@@ -30,30 +50,28 @@ abstract class AbstractController
                 }
             }
 
-            $path = "http://" . $_SERVER['HTTP_HOST'] . $_SERVER['SCRIPT_NAME'] . $route;
-
-            $path = rtrim($path, "/");
-            $path = rtrim($path, 'index.php');
-
-            return $path;
+            return $request->getSchemeAndHttpHost().$request->getBasePath().$route;
         }
 
-        throw new \Exception("No route found");
+        return null;
     }
 
-    /**
-     * @throws \Exception
-     */
-    protected function redirectToRoute($routeName)
+    protected function redirectToRoute($routeName, array $params = [])
     {
-        $route = $this->generateUrl($routeName);
+        $route = $this->generateUrl($routeName, $params);
 
-        header("Location:" . $route, true, 302);
+        return new RedirectResponse($route);
     }
 
     protected function render($template, array $parameters = [], $extends = "base.phtml")
     {
-        extract(array_map('htmlentities', $parameters));
+        extract(array_map(function($param){
+            if(is_string($param)){
+                return htmlentities($param);
+            }
+
+            return $param;
+        }, $parameters));
 
         ob_start();
         require __DIR__ . "/../../template/" . $template;
