@@ -16,4 +16,11 @@ return [
     ['name' => "orm_add", "route" => "/orm/add", "controller" => \App\Controller\ORMController::class, "action" => "add"],
     ['name' => "orm_edit", "route" => "/orm/edit/{id}", "controller" => \App\Controller\ORMController::class, "action" => "edit"],
     ['name' => "orm_remove", "route" => "/orm/remove/{id}", "controller" => \App\Controller\ORMController::class, "action" => "remove"],
+
+    ['name' => "soap_server_index", "route" => "/soap", "controller" => \App\Controller\SoapServerController::class, "action" => "index"],
+    ['name' => "soap_server_product", "route" => "/soap/server", "controller" => \App\Controller\SoapServerController::class, "action" => "product"],
+    ['name' => "soap_client_index", "route" => "/soap/client", "controller" => \App\Controller\SoapClientController::class, "action" => "index"],
+
+    ['name' => "api_rest_course", "route" => "/api/course", "controller" => \App\Controller\RestController::class, "action" => "course"],
+    ['name' => "api_rest_index", "route" => "/api/product", "controller" => \App\Controller\RestController::class, "action" => "index"],
 ];

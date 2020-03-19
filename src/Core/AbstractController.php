@@ -50,7 +50,7 @@ abstract class AbstractController
                 }
             }
 
-            return $request->getSchemeAndHttpHost().$request->getBasePath().$route;
+            return $request->getSchemeAndHttpHost().$request->getBasePath()."/index.php".$route;
         }
 
         return null;

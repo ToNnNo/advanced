@@ -4,8 +4,6 @@
 namespace App\Utils;
 
 
-use http\Exception\RuntimeException;
-
 class GenerateKeyOpenSSL
 {
 
@@ -26,7 +24,7 @@ class GenerateKeyOpenSSL
         $status = openssl_pkey_export_to_file($privateKey, $rootdir . '/private.key', $passphrase);
 
         if (!$status) {
-            throw new RuntimeException(openssl_error_string());
+            throw new \RuntimeException(openssl_error_string());
         }
 
         // créer la clé public

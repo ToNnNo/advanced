@@ -16,9 +16,10 @@
   "require": {
     "php": "^7.1",
     "ext-openssl": "*",
-    "ext-http": "*",
+    "ext-soap": "*",
     "doctrine/collections": "^1.6",
     "doctrine/orm": "^2.7",
-    "symfony/http-foundation": "^5.0"
+    "symfony/http-foundation": "^5.0",
+    "zendframework/zend-soap": "^2.8"
   }
 }

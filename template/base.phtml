@@ -27,6 +27,11 @@
             text-decoration: underline;
         }
 
+        a.disabled {
+            pointer-events: none;
+            cursor: default;
+        }
+
     </style>
 </head>
 <body>
@@ -38,11 +43,15 @@
             <li><a href="<?php echo $this->generateUrl('home_index'); ?>">Accueil</a></li>
             <li><a href="<?php echo $this->generateUrl('design_pattern_index'); ?>">Design Pattern</a></li>
             <li><a href="<?php echo $this->generateUrl('crypto_index'); ?>">Hashage</a></li>
-            <li><a href="<?php echo $this->generateUrl('crypto_generate'); ?>">Generate Key</a></li>
+            <li><a href="<?php echo $this->generateUrl('openssl_generate'); ?>">Generate Key</a></li>
             <li><a href="<?php echo $this->generateUrl('openssl_crypt'); ?>">OpenSSL - Crypt</a></li>
             <li><a href="<?php echo $this->generateUrl('openssl_decrypt'); ?>">OpenSSL - Decrypt</a></li>
             <li><a href="<?php echo $this->generateUrl('orm_course'); ?>">ORM: cours</a></li>
             <li><a href="<?php echo $this->generateUrl('orm_index'); ?>">Liste des produits</a></li>
+            <li><a href="<?php echo $this->generateUrl('soap_server_index'); ?>">WSDL</a></li>
+            <li><a href="<?php echo $this->generateUrl('soap_server_product'); ?>">SOAP Server</a></li>
+            <li><a href="<?php echo $this->generateUrl('soap_client_index'); ?>" class="disabled">SOAP Client</a></li>
+            <li><a href="<?php echo $this->generateUrl('api_rest_course'); ?>">Rest: cours</a></li>
         </ul>
     </nav>
 

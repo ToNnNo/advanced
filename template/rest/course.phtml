@@ -1,0 +1,61 @@
+[block:title]
+    API RestFull
+[endblock]
+
+[block:body]
+
+<h2>API = Application Programming Interface</h2>
+
+<p>API Rest -> s'appuie sur le protocol http</p>
+
+<p>
+    1 Ressource -> accessible à travers un noeud. (1 level)<br />
+    ex: http://www.dawan.fr/api/implantation    -> donne toutes les implantations<br />
+    ex: http://www.dawan.fr/api/implantation/1  -> donne l'implantation qui a pour id = 1 <br />
+    ex: http://www.dawan.fr/api/formation       -> donne toutes les formations
+</p>
+
+<p>Pour acceder à une ressource, on utilise les verbes HTTP ... </p>
+
+<h3>VERB HTTP:</h3>
+<ul>
+    <li>GET: lire une ressource</li>
+    <li>POST: ajouter une ressource</li>
+    <li>PUT: modification totale de la ressource</li>
+    <li>PATCH: modification partielle de la ressouce</li>
+    <li>DELETE: suppression d'une ressource</li>
+    <li> ------ </li>
+    <li>OPTIONS: indique les capacités d'une adresse (quelle verb puis je utiliser)</li>
+    <li>HEAD: indique si une ressouce est accessible</li>
+    <li> ------ </li>
+    <li>CONNECT: Crée un tunnel de connexion vers une ressouce</li>
+    <li>TRACE: test aller/retour vers la ressource</li>
+</ul>
+
+<h3>API REST avec un VERB</h3>
+
+<p>
+    GET: http://..../api/implantation -> afficher toutes les implantations<br />
+    GET: http://..../api/implantation/1 -> afficher l'implantation (id = 1)<br />
+    POST: http://..../api/implantation -> Ajouter une nouvelle implantation<br />
+    PUT/PATCH: http://..../api/implantation/1 -> modifie l'implantation (id = 1)<br />
+    DELETE: http://..../api/implantation/1 -> supprime l'implantation (id = 1)
+</p>
+
+<p>
+    Lister les formateurs rattaché à l'implantation 1<br />
+    GET: http://..../api/implantation/1/formateur
+</p>
+
+<p>
+    OPTIONS: http://..../api/implantation -> GET/POST<br />
+    OPTIONS: http://..../api/implantation/1 -> GET/PUT/PATCH/DELETE
+</p>
+
+<h2>Formats de réponse</h2>
+<ul>
+    <li>JSON</li>
+    <li>XML</li>
+</ul>
+
+[endblock]
