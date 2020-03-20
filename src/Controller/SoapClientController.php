@@ -13,8 +13,6 @@ class SoapClientController extends AbstractController
         $uri = $this->generateUrl('soap_server_product');
         $wsdl = $this->generateUrl('soap_server_index');
 
-        $path = dirname(__DIR__, 2)."/public/wsdl/product.wsdl";
-
         try {
             $client = new \SoapClient($wsdl, [
                 'location' => $uri,
