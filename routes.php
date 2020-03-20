@@ -22,5 +22,6 @@ return [
     ['name' => "soap_client_index", "route" => "/soap/client", "controller" => \App\Controller\SoapClientController::class, "action" => "index"],
 
     ['name' => "api_rest_course", "route" => "/api/course", "controller" => \App\Controller\RestController::class, "action" => "course"],
-    ['name' => "api_rest_index", "route" => "/api/product", "controller" => \App\Controller\RestController::class, "action" => "index"],
+    ['name' => "api_rest_index", "route" => "/api/products", "controller" => \App\Controller\RestController::class, "action" => "index"],
+    ['name' => "api_rest_show", "route" => "/api/products/{id}", "controller" => \App\Controller\RestController::class, "action" => "show"]
 ];
