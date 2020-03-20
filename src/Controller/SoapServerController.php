@@ -6,8 +6,8 @@ namespace App\Controller;
 
 use App\Core\AbstractController;
 use App\Soap\SoapProduct;
+use Laminas\Soap\AutoDiscover;
 use Symfony\Component\HttpFoundation\Response;
-use Zend\Soap\AutoDiscover;
 
 class SoapServerController extends AbstractController
 {
@@ -17,8 +17,8 @@ class SoapServerController extends AbstractController
         $autodiscover = new AutoDiscover();
         $autodiscover
             ->setClass(SoapProduct::class)
-            ->setUri($this->generateUrl('soap_server_product'));
-            //->setServiceName("SoapProduct");
+            ->setUri($this->generateUrl('soap_server_product'))
+        ;
 
         $wsdl = $autodiscover->generate();
 
@@ -40,7 +40,7 @@ class SoapServerController extends AbstractController
         $path = dirname(__DIR__, 2)."/public/wsdl/product.wsdl";
 
         try {
-            $server = new \SoapServer($path, ['uri' => $uri, 'trace'=>true]);
+            $server = new \SoapServer($wsdl, ['uri' => $uri, 'trace'=>true]);
             $server->setClass(SoapProduct::class);
             $server->handle();
         }catch(\SoapFault $exception){

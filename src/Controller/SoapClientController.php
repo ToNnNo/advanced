@@ -16,7 +16,7 @@ class SoapClientController extends AbstractController
         $path = dirname(__DIR__, 2)."/public/wsdl/product.wsdl";
 
         try {
-            $client = new \SoapClient(null, [
+            $client = new \SoapClient($wsdl, [
                 'location' => $uri,
                 'uri' => $uri,
                 'trace' => true
@@ -24,8 +24,12 @@ class SoapClientController extends AbstractController
 
             $products = $client->__soapCall("getAll", []);
         }catch (\SoapFault $exception) {
+            echo "<pre>";
+            var_dump($client);
+            echo "</pre><hr />";
             die($exception);
         }
+
 
         return $this->render('soap/index.phtml', [
             'products' => $products

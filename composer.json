@@ -20,6 +20,6 @@
     "doctrine/collections": "^1.6",
     "doctrine/orm": "^2.7",
     "symfony/http-foundation": "^5.0",
-    "zendframework/zend-soap": "^2.8"
+    "laminas/laminas-soap": "^2.8"
   }
 }
